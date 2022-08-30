@@ -1,0 +1,33 @@
+{
+    "name": "gongmeng/weather",
+    "description": "A weather SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "gongmeng",
+            "email": "18588264128@163.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.5",
+        "ext-json": "*",
+        "illuminate/support": "^8.83"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gongmeng\\Weather\\": "./src/",
+            "Gongmeng\\Weather\\Tests\\": "./tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "mockery/mockery": "^1.5"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gongmeng\\Weather\\ServiceProvider"
+            ]
+        }
+    }
+}
