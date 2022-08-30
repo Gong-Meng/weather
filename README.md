@@ -3,6 +3,7 @@
 <p align="center">基于高德开放平台的PHP天气信息组件</p>
 
 [![Tests](https://github.com/Gong-Meng/weather/actions/workflows/tests.yml/badge.svg)](https://github.com/Gong-Meng/weather/actions/workflows/tests.yml)
+![StyleCI build status](https://github.styleci.io/repos/530534675/shield)
 
 ## Installing
 
