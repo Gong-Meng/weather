@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the gongmeng/weather.
+ *
+ * (c) gongmeng <i@gongmeng.me>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Gongmeng\Weather;
 
 use Gongmeng\Weather\Exceptions\HttpException;
@@ -8,7 +17,6 @@ use Gongmeng\Weather\Exceptions\InvalidArgumentException;
 
 class Weather
 {
-
     protected $key;
     protected $guzzleOptions = [];
 
@@ -42,7 +50,7 @@ class Weather
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
 
         if (!in_array(\strtolower($format), ['xml', 'json'])) {
-            throw new InvalidArgumentException('Invalid response format: ' . $format);
+            throw new InvalidArgumentException('Invalid response format: '.$format);
         }
 
         if (!\in_array(\strtolower($type), ['base', 'all'])) {
@@ -53,7 +61,7 @@ class Weather
             'key' => $this->key,
             'city' => $city,
             'output' => $format,
-            'extensions' =>  $type,
+            'extensions' => $type,
         ]);
 
         try {
@@ -62,9 +70,8 @@ class Weather
             ])->getBody()->getContents();
 
             return 'json' === $format ? \json_decode($response, true) : $response;
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             throw new HttpException($exception->getMessage(), $exception->getCode(), $exception);
         }
     }
-
 }
